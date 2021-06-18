@@ -1,0 +1,6 @@
+name: drupal-evelb
+recipe: pantheon
+config:
+  framework: drupal8
+  site: drupal-evelb
+  id: 41eebb83-f112-4a92-8e68-3711f68153eb
