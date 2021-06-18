@@ -40,12 +40,13 @@ function evelb_user_block_install() {
     if (!$user_exists) {
       $user = \Drupal::entityTypeManager()->getStorage('user')->create([
         'name'      => 'test_' . $i,
-        'password'  => 'qwerty',
         'mail'      => 'test' . $i . '@test.com',
         'roles'     => array_rand($roles, 1),
         'isNew'     => TRUE,
         'status'    => TRUE,
       ]);
+
+      $user->setPassword('qwerty');
 
       $user->save();
     }
