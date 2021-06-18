@@ -1,0 +1,10 @@
+uuid: a89006d1-3935-4f3a-aa91-a010f701eda9
+langcode: en
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+weight: 3
+is_admin: null
+permissions:
+  - 'view user email addresses'

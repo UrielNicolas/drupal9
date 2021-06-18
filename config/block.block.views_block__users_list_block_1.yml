@@ -1,0 +1,29 @@
+uuid: 2bab430e-931a-4895-9c7b-4e6fdabc8613
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.users_list
+  module:
+    - system
+    - views
+  theme:
+    - bartik
+id: views_block__users_list_block_1
+theme: bartik
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:users_list-block_1'
+settings:
+  id: 'views_block:users_list-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false

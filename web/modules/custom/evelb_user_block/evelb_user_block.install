@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Installation functions for Evelb user block module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function evelb_user_block_install() {
+
+  $roles = [
+    'manager' => 'Manager',
+    'developer' => 'Developer'
+  ];
+
+  //Create roles only if they don't exist
+  foreach ($roles as $key => $value) {
+    $role_exists = \Drupal::entityTypeManager()->getStorage('user_role')->load($key);
+    if (!$role_exists) {
+      \Drupal::entityTypeManager()->getStorage('user_role')->load([
+        'id' => 'developer',
+      ]);
+      $role = \Drupal::entityTypeManager()->getStorage('user_role')->create([
+        'id'     => $key,
+        'label'  => $value,
+      ]);
+
+      $role->save();
+    }
+  }
+
+  //Create users only if their names don't exist
+  for ($i=1; $i < 10; $i++) {
+    $user_exists = \Drupal::entityTypeManager()->getStorage('user')->loadByProperties([
+      'name' => 'test_' . $i,
+    ]);
+
+    if (!$user_exists) {
+      $user = \Drupal::entityTypeManager()->getStorage('user')->create([
+        'name'      => 'test_' . $i,
+        'password'  => 'qwerty',
+        'mail'      => 'test' . $i . '@test.com',
+        'roles'     => array_rand($roles, 1),
+        'isNew'     => TRUE,
+        'status'    => TRUE,
+      ]);
+
+      $user->save();
+    }
+  }
+
+}
