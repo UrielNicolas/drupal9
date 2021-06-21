@@ -3,3 +3,5 @@ description: Module creates block and users with roles
 package: Evelb
 type: module
 core_version_requirement: ^8.8 || ^9
+dependencies:
+  - block

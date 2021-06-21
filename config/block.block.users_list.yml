@@ -1,0 +1,25 @@
+uuid: 5f9521b6-830b-41d5-ac6c-1db01e913072
+langcode: en
+status: true
+dependencies:
+  module:
+    - evelb_user_block
+    - system
+  theme:
+    - bartik
+id: users_list
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: users_list
+settings:
+  id: users_list
+  label: 'Lista de usuarios'
+  provider: evelb_user_block
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
